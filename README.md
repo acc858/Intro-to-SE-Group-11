@@ -2,7 +2,7 @@ Team members:
 
   1. Aden | GitHub Username | Role | Languages/Techniques
   
-  2. Seth | GitHub Username | Role | Languages/Techniques  
+  2. Seth | GitHub Username Setekh7 | Role | Languages/Techniques:Python,SQL
   
   3. Brody | GitHub Username | Role | Languages/Techniques
   
