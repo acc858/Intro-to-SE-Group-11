@@ -9,9 +9,9 @@ Team members:
   4. Sally Draper | Sally1928 | developer | Languages/Techniques: C++, Python
 
 
-Description: This system is an e-comers page that allowes users to buy books from an online sourse.
+Description: This system is an e-commerce page that allowes users to buy books from an online sourse.
 
-Objective: Create an online e-comers platform for the purchising/selling of books
+Objective: Create an online e-commerce platform for the purchising/selling of books
 
 Features:
  - Allow New Users to register with an account
