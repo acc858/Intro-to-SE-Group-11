@@ -6,7 +6,7 @@ Team members:
   
   3. Brody | GitHub Username | Role | Languages/Techniques
   
-  4. Sally Draper | Sally1928 | Role | Languages/Techniques: Python
+  4. Sally Draper | Sally1928 | Role | Languages/Techniques: 
 
 
 Description:
