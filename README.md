@@ -1,6 +1,6 @@
 Team members:
 
-  1. Aden | GitHub Username | Role | Languages/Techniques
+  1. Aden | acc858 | Team Leader | Languages/Techniques: C++, Python
   
   2. Seth Burks | Setekh7 | Role | Languages/Techniques:Python,SQL
   
