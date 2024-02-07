@@ -1,6 +1,6 @@
 Team members
   -Aden 
-      GitHub Username
+			GitHub Username
       Role
       Languages/Techniques
   -Seth
