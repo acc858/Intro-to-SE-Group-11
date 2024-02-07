@@ -4,7 +4,7 @@ Team members:
   
   2. Seth Burks | Setekh7 | developer | Languages/Techniques:Python,SQL
   
-  3. Brody | rushingbrody | developer | Languages/Techniques: C++, C, Python
+  3. Brody Rushing | rushingbrody | developer | Languages/Techniques: C++, C, Python
   
   4. Sally Draper | Sally1928 | developer | Languages/Techniques: C++, Python
 
