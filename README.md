@@ -23,3 +23,4 @@ Features:
  - The Admin will have a secure password to be able to access the inventory of the system
  - Admin will be able to update the inventory as needed
  
+Trello Link: https://trello.com/b/S1Kayl9J/group-11-sprint-2
