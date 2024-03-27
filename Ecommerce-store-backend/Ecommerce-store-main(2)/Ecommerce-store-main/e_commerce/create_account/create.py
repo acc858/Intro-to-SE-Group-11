@@ -17,6 +17,7 @@ import database.db_functions.select as select
 import database.db_functions.insert as insert
 import classes.users as users
 import login.user_login as user_login
+import login.user_crypto as crypto
 import random
 
 #USER VARIABLES
@@ -95,6 +96,7 @@ def create_account():
         print("Username already exists\nUse a different username")
     print("Enter password")
     password = input()
+    password = crypto.encrypt(password)
     
     
 
