@@ -1,0 +1,54 @@
+{%  load static %}
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Books R Us Registration</title>
+    <link rel="stylesheet"
+          href="{% static 'login.css' %}">
+    <style>
+        .messages {
+    color: red;
+}
+    </style>
+</head>
+ 
+<body>
+    <div class="main">
+        <h1>Books R Us</h1>
+        <h2>Seller</h2>
+        <h3>Enter your login credentials</h3>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method='POST' action="{% url 'sellerlogin' %}">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Enter your Username" required>
+ 
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder="Enter your Password" required>
+ 
+            <div class="wrap">
+                <button type="submit">
+                    Login
+                </button>
+            </div>
+        </form>
+        <p>Not registered? 
+              <a href="{% url 'Create_Account' %}"
+               style="text-decoration: none;">
+                Create an account
+            </a>
+            <p> Are you a Buyer?
+                <a href="{% url 'loginbuy' %}"> Login Here</a>
+            </p>
+        </p>
+    </div>
+</body>
+ 
+</html>

@@ -1,0 +1,36 @@
+{%  load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        "Account" 
+    </title>
+
+    <link rel="stylesheet" href="{% static 'buyerstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'AccountUserStyle.css' %}">   
+</head>
+
+<body>
+    <h2>
+    <div class="links">
+    <ul>
+        <li> <a href="{% url 'AccountUser' %}" style="text-decoration: none;" >Account</a> </li>
+        <li> <a href="{% url 'Buyer_Home' %}"style="text-decoration: none;">View Current Listings</a></li>
+        <li> <a href="{% url 'User_Cart' %}" style="text-decoration: none;">Cart</a></li>
+        <li> <a href= "{% url 'logout' %}" style="text-decoration: none;"> Logout</a></li>
+    </ul>
+    </div>
+</h2>
+    <div class="main">
+        <h1>Welcome, {{request.user.username}}</h1>
+    <!-- Update Buyer Profile -->
+    <h3>Update Profile:</h3>
+    <a href="{% url 'UpdateUser' %}">Update Profile</a>
+    
+
+
+    </div>
+    </body>
+    </html>
+    
