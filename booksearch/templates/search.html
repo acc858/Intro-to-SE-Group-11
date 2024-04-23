@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Books</title>
+</head>
+<body>
+    <h1>Search for Books</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    {% if listings %}
+        <h2>Results:</h2>
+        <ul>
+            {% for listing in listings %}
+                <li>{{ listing.title }} by {{ listing.author }} (ISBN: {{ listing.isbn }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>
