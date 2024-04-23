@@ -54,3 +54,6 @@ class BuyerUpdate(forms.Form):
 #Update SELLER account
 class SellerUpdate(forms.Form):
     new_username=forms.CharField(label='New Username', max_length=100)
+
+class SearchForm(forms.Form):
+    query = forms.CharField()

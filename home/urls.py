@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from django.urls import path, include
 
 
 
@@ -40,5 +40,8 @@ urlpatterns = [
     path('checkout_pay/',views.checkout_pay,name='checkout_pay' ),
     path('checkout_review/',views.checkout_review,name='checkout_review'),
     path('confirm_checkout/', views.confirm_checkout, name='confirm_checkout'),
+
+    path('search/', views.search, name='search'),
+    path('books/', include('booksearch.urls')),
 
 ]

@@ -11,7 +11,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from decimal import Decimal
-
+from .forms import SearchForm
+from django.db import models
+from django.db.models import Q
 from .forms import SellerReg, SellerLogForm, BuyerLogForm, BuyerReg, BuyerUpdate, SellerUpdate
 
 # Create your views here.
@@ -410,3 +412,10 @@ def confirm_checkout(request):
     return redirect('Buyer_Home')
     
   
+def search(request):
+    form = SearchForm(request.GET)
+    listings = None
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        listings = listing.objects.filter(models.Q(title__icontains=query) | models.Q(isbn__icontains=query))
+    return render(request, 'search.html', {'form': form, 'listings': listings})
