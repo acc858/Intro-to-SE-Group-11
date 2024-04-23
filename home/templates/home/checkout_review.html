@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Checkout Review</title>
+    <link rel="stylesheet" href="{% static 'checkout_r.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Checkout Review</h1>
+        <!-- CSRF token -->
+        {% csrf_token %}
+        <!-- Payment information -->
+        <div>
+            <p><strong>Card Holder's Name:</strong> {{ card_hold_name }}</p>
+            <p><strong>Card Number:</strong> {{ card_num }}</p>
+            <p><strong>Expiration Date:</strong> {{ exp }}</p>
+            <p><strong>CVV:</strong> {{ cvv }}</p>
+        </div>
+
+        <hr>
+
+        <!-- Shipping information -->
+        <div>
+            <p><strong>Name:</strong> {{ full_name }}</p>
+            <p><strong>Email Address:</strong> {{ email }}</p>
+            <p><strong>Shipping Address:</strong> {{ address_main }}</p>
+            <p>{{ address_opt }}</p>
+            <p><strong>City:</strong> {{ city }}</p>
+            <p><strong>State:</strong>{{ state }}</p>
+            <p><strong>ZIP Code:</strong> {{ zip_code }}</p>
+        </div>
+
+        <!-- List of items in the cart -->
+        <strong>Items in Cart:</strong>
+        <ul>
+            {% for item in cart_items %}
+                <li class="item">
+
+                    Name: {{ item.book.title }} - Author: {{ item.book.author }} - Year: {{ item.book.year }} - ISBN: {{ item.book.isbn }} - <strong>Price: {{ item.book.price }} -- <strong>Quantity: {{ item.quantity }}</strong>
+                </li>
+            {% empty %}
+                <li>No items in the cart.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Total price -->
+        <p><strong>Total Price: ${{ total_price }}</strong></p>
+
+        <!--New Nav buttons-->
+        <div class="nav-buttons">
+            <a href="#" onclick="window.history.back()" class="button return-button">Back</a>
+            <a href="{% url 'confirm_checkout' %}" class="button back-button">Confirm Checkout</a>
+        </div>
+        
+<!---
+        !--Navigaition buttons--
+        <div class="nav-buttons">
+            <a href="#" onclick="window.history.back()" class="button return-button">Back</a>
+            <a href="{% url 'Buyer_Home' %}" class="button back-button">Comfirm Checkout</a>
+        </div>
+-->
+
+    </div>
+</body>
+
+</html>
+
+

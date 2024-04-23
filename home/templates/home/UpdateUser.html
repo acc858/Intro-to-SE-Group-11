@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Listings</title>
+    <link rel="stylesheet" href="{% static 'buyerstyle.css' %}">
+
+</head>
+<body>
+    <h1>Update Username</h1>
+    <li>Current Username {{request.user.username}}</li>
+    <form method="POST" action="{% url 'update_buy' %}">
+        {% csrf_token %}
+        <label for="id_username">New Username:</label>
+        <input type="text" id="id_username" name="new_username"><br><br>
+        <button type="submit">Update Username</button>
+    </form>
+    <a href="{% url 'AccountUser' %}">Go back to profile</a>
+</body>
+</html>
