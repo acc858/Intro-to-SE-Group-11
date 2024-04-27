@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Listings</title>
+    <style>
+        /* Add your CSS styles here */
+        .book-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .book-author {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .book-year {
+            font-size: 1rem;
+            color: #666;
+        }
+ h2 {
+    background-color:  #7fc5ca;
+    display: inline-flex;
+    margin: 0%;
+    padding: .10em;
+    list-style: none;
+    border: 2px solid ;
+}
+a:link {
+    color: green;
+}
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f3f3f3;
+    flex-direction: column;
+    margin: 0;
+}
+
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 1200px;
+    text-align: center;
+}
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #7fc5ca;
+    width: 100%;
+    font-size: 16px;
+}
+h1 {
+    color: #7fc5ca;
+}
+.book-img img {
+            max-width: 200px; 
+             max-height: 300px; 
+            width: auto;
+             height: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+    <h2>
+        <div class="links">
+        <ul>
+            <a href="{% url 'AccountSeller' %}" style="text-decoration: none;" >Account</a> 
+            <a href="{% url 'Seller_Home' %}"style="text-decoration: none;">View Your Listings</a>
+            <a href="{% url 'AddListing' %}"style="text-decoration: none;">Add a New Listing</a>
+            <a href="{% url 'logout' %}"style="text-decoration: none;"> Logout</a>
+        </ul>
+        </div>
+</h2>
+    <div class="main"> 
+    <h1>Listings</h1>
+
+    <ul>
+    <div class="book-container">
+    {% for listing in listings %}
+    <div class="book-card">
+        <li><div class="book-title">{{ listing.title }}</div><div class="book-img"><img src="{{ listing.image }}"></div><div class="book-author">Author: {{ listing.author }}</div><br><div class="book-year">Year: {{ listing.year }}</div><br><div class="book-quantity">Quantity: {{ listing.quantity }}</div><br><div class="book-price">Price: {{ listing.price }}</div><br><div class="book-isbn">ISBN: {{ listing.isbn }}<br>
+            <form action="{% url 'delete_listing' listing.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </div>
+    {% endfor %}
+    </ul>
+    </div>
+</div>
+</body>
+</html>
