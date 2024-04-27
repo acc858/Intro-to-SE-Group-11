@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+div, ul {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-50 {
+    flex: 50%;
+    padding-right: 20px;
+}
+
+.col-50:last-child {
+    padding-right: 0;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+}
+
+.icon-container i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #e68a00;
+}
+
+button {
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button.back-button {
+    background-color: #232f3e;
+    color: #fff;
+}
+
+.button.back-button:hover {
+    background-color: #3f515d;
+}
+
+ 

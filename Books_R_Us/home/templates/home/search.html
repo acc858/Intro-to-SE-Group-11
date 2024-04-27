@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Books</title>
+    <style>
+        /* Add your CSS styles here */
+        .book-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .book-author {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .book-year {
+            font-size: 1rem;
+            color: #666;
+        }
+ h2 {
+    background-color:  #c37857;
+    display: inline-flex;
+    margin: 0%;
+    padding: .10em;
+    list-style: none;
+    border: 2px solid ;
+}
+a:link {
+    color: green;
+}
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f3f3f3;
+    flex-direction: column;
+    margin: 0;
+}
+
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 1200px;
+    text-align: center;
+}
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #c37857;
+    width: 100%;
+    font-size: 16px;
+}
+h1 {
+    color: #c37857;
+}
+.book-img img {
+            max-width: 200px; 
+             max-height: 300px; 
+            width: auto;
+             height: auto;
+        }
+
+.out-of-stock-box {
+    border: 2px solid #040404; /* Red border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding around the message */
+    margin-top: 10px; /* Add some space between the message and other elements */
+    background-color: #5a5959; /* Light grey background */
+}
+
+.out-of-stock {
+    margin: 0; /* Remove default margin */
+    color: #0a0909; /* Red text color */
+    font-weight: bold; /* Bold text */
+}
+
+
+    </style>
+</head>
+<body>
+    <h2>
+        <div class="links">
+        <ul>
+         <a href="{% url 'AccountUser' %}" style="text-decoration: none;" >Account</a> 
+         <a href="{% url 'Buyer_Home' %}"style="text-decoration: none;">View All Listings</a>
+         <a href="{% url 'search' %}" style="text-decoration: none;"> Search</a>
+         <a href="{% url 'User_Cart' %}" style="text-decoration: none;">Cart</a>
+         <a href= "{% url 'logout' %}" style="text-decoration: none;"> Logout</a>
+        </ul>
+        </div>
+</h2>
+<div class="main">
+    <h1>Search for Books</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit" style="width:15%;">Search</button>
+    </form>
+
+    {% if listings %}
+        <h3>Results:</h3>
+        
+    <div class="book-container">
+    {% for book in listings %}
+    <div class="book-card">
+        <li>
+            
+            <div class="book-title">{{ book.title }}</div><div class="book-img"><img src="{{ book.image }}"></div><div class="book-author">Author: {{ book.author }}</div><br><div class="book-year">Year: {{ book.year }}</div><br><div class="book-quantity">Quantity: {{ book.quantity }}</div><br><div class="book-price">Price: {{ book.price }}</div><br><div class="book-isbn">ISBN: {{ book.isbn }}<br>
+            {% if book.quantity >= 1 %}
+            <form action="{% url 'add_to_cart' book.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Add to cart</button>
+            </form>
+            {% else %}
+                <div class="out-of-stock-box">
+                    <p>Out of Stock</p>
+                </div>
+            {% endif %}
+        </li>
+    </div>
+    {% endfor %}
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    </ul>
+    </div>
+</body>
+</div>
+</html>
