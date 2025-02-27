@@ -4,9 +4,7 @@ Team members:
   
   2. Seth Burks | Setekh7 | developer | Languages/Techniques:Python,SQL
   
-  3. Brody Rushing | rushingbrody | developer | Languages/Techniques: C++, C, Python
-  
-  4. Sally Draper | Sally1928 | developer | Languages/Techniques: C++, Python
+  3. Sally Draper | Sally1928 | developer | Languages/Techniques: C++, Python
 
 
 Description: This system is an e-commerce page that allows users to buy books from an online source.
@@ -18,7 +16,7 @@ Features:
  - Allow existing users to log back into the account
  - System will support password hashing/slating for secure storage of user information
  - Allow Users to browse through an inventory of books as well as search for specific books in the list
- - Allow Users to store items into "Cart" as well as update the items in the Cart
+ - Allow Users to store items in "Cart" as well as update the items in the Cart
  - Allow Users to Check out the items in the cart when they choose to
  - The Admin will have a secure password to be able to access the inventory of the system
  - Admin will be able to update the inventory as needed
